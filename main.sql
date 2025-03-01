@@ -233,7 +233,6 @@ begin
     declare @TicketPrice int;
     declare @PassengerID int;
 
-
 end;
 go
 

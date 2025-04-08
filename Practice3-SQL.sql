@@ -61,11 +61,11 @@ insert into Diseases(DiseaseName, DiseaseSeverity) values
                                                        ('Cancer', 1);
 go
 insert into Doctors(DoctorName, DoctorPhone, DoctorPremium, DoctorSalary, DoctorSurname) values
-('John', '1234567890', 250, 1600, 'Doe'),
-('Smith', '0987654321', 40, 1400, 'Johnson'),
-('Alex', '1122334455', 245, 1500, 'Williams'),
-('David', '5566778899', 150, 1500, 'Brown'),
-('Michael', '6677889900', 260, 1600, 'Jones');
+                                                                                             ('John', '1234567890', 250, 1600, 'Doe'),
+                                                                                             ('Smith', '0987654321', 40, 1400, 'Johnson'),
+                                                                                             ('Alex', '1122334455', 245, 1500, 'Williams'),
+                                                                                             ('David', '5566778899', 150, 1500, 'Brown'),
+                                                                                             ('Michael', '6677889900', 260, 1600, 'Jones');
 go
 insert into Examinations(ExaminationDayOfWeek, ExaminationEndTime, ExaminationStartTime, ExaminationName) values
                                                                                                               (1, '10:00:00', '08:00:00', 'Cardiology Checkup'),
@@ -75,11 +75,11 @@ insert into Examinations(ExaminationDayOfWeek, ExaminationEndTime, ExaminationSt
                                                                                                               (5, '14:00:00', '12:00:00', 'Oncology Checkup');
 go
 insert into Wards (WardBuilding, WardFloor, WardName) values
-('1', 1, 'Cardiology Ward'),
-('2', 2, 'Dermatology Ward'),
-('3', 3, 'Gynecology Ward'),
-('4', 4, 'Neurology Ward'),
-('5', 5, 'Oncology Ward');
+                                                          ('1', 1, 'Cardiology Ward'),
+                                                          ('2', 2, 'Dermatology Ward'),
+                                                          ('3', 3, 'Gynecology Ward'),
+                                                          ('4', 4, 'Neurology Ward'),
+                                                          ('5', 5, 'Oncology Ward');
 
 select * from Wards;
 select DoctorSurname, DoctorPhone
@@ -110,6 +110,21 @@ select DoctorSurname from Doctors
 where (Doctors.DoctorSalary / 2) > (Doctors.DoctorPremium * 3);
 
 select distinct ExaminationName from Examinations
-where ExaminationDayOfWeek = 1 or ExaminationDayOfWeek = 2 or ExaminationDayOfWeek = 3 and ExaminationStartTime > '12:00:00' and ExaminationEndTime < '15:00:00';
+where ExaminationDayOfWeek between 1 and 3 and ExaminationStartTime > '12:00:00' and ExaminationEndTime < '15:00:00';
+
+select DepartmentName, DepartmentBuilding from Departments
+where DepartmentBuilding = 1 or DepartmentBuilding = 3 or DepartmentBuilding = 8 or DepartmentBuilding = 10;
+
+select DiseaseName from Diseases
+where DiseaseSeverity between 3 and 5;
+
+select DepartmentName from Departments
+where DepartmentBuilding not in (1,3);
+
+select DepartmentName from Departments
+where DepartmentBuilding = 1 or DepartmentBuilding = 3;
+
+select DoctorSurname from Doctors
+where DoctorSurname like 'N%';
 
 drop database HospitalDB;

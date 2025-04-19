@@ -63,100 +63,100 @@ create table Wards
 go
 
 insert into Departments (DepartmentName) values
-('Cardiology'),
-('Neurology'),
-('Pediatrics'),
-('Oncology'),
-('Orthopedics'),
-('Dermatology'),
-('Radiology'),
-('Psychiatry'),
-('Gastroenterology'),
-('Urology');
+                                             ('Cardiology'),
+                                             ('Neurology'),
+                                             ('Pediatrics'),
+                                             ('Oncology'),
+                                             ('Orthopedics'),
+                                             ('Dermatology'),
+                                             ('Radiology'),
+                                             ('Psychiatry'),
+                                             ('Gastroenterology'),
+                                             ('Urology');
 go
 insert into Doctors (DoctorName, DoctorPremium, DoctorSalary, DoctorSurname) values
-('John', 1000, 5000, 'Doe'),
-('Jane', 1200, 6000, 'Smith'),
-('Emily', 1500, 7000, 'Johnson'),
-('Michael', 1300, 5500, 'Brown'),
-('Sarah', 1100, 5200, 'Davis'),
-('David', 1400, 5800, 'Miller'),
-('Laura', 1600, 7200, 'Wilson'),
-('James', 1700, 8000, 'Moore'),
-('Linda', 1800, 9000, 'Taylor'),
-('Robert', 1900, 9500, 'Anderson');
+                                                                                 ('John', 1000, 5000, 'Doe'),
+                                                                                 ('Jane', 1200, 6000, 'Smith'),
+                                                                                 ('Emily', 1500, 7000, 'Johnson'),
+                                                                                 ('Michael', 1300, 5500, 'Brown'),
+                                                                                 ('Sarah', 1100, 5200, 'Davis'),
+                                                                                 ('David', 1400, 5800, 'Miller'),
+                                                                                 ('Laura', 1600, 7200, 'Wilson'),
+                                                                                 ('James', 1700, 8000, 'Moore'),
+                                                                                 ('Linda', 1800, 9000, 'Taylor'),
+                                                                                 ('Robert', 1900, 9500, 'Anderson');
 go
 insert into Specializations (SpecializationName) values
-('Cardiology'),
-('Neurology'),
-('Pediatrics'),
-('Oncology'),
-('Orthopedics'),
-('Dermatology'),
-('Radiology'),
-('Psychiatry'),
-('Gastroenterology'),
-('Urology');
+                                                     ('Cardiology'),
+                                                     ('Neurology'),
+                                                     ('Pediatrics'),
+                                                     ('Oncology'),
+                                                     ('Orthopedics'),
+                                                     ('Dermatology'),
+                                                     ('Radiology'),
+                                                     ('Psychiatry'),
+                                                     ('Gastroenterology'),
+                                                     ('Urology');
 go
 insert into DoctorSpecializations (DoctorID, SpecializationID) values
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9),
-(10, 10);
+                                                                   (1, 1),
+                                                                   (2, 2),
+                                                                   (3, 3),
+                                                                   (4, 4),
+                                                                   (5, 5),
+                                                                   (6, 6),
+                                                                   (7, 7),
+                                                                   (8, 8),
+                                                                   (9, 9),
+                                                                   (10, 10);
 go
 insert into Sponsors (SponsorName) values
-('HealthCorp'),
-('Wellness Inc.'),
-('CarePlus'),
-('MediAid'),
-('HealthFirst'),
-('LifeLine'),
-('Wellbeing Ltd.'),
-('CureAll'),
-('Vitality Partners'),
-('HealthGuard');
+                                       ('HealthCorp'),
+                                       ('Wellness Inc.'),
+                                       ('CarePlus'),
+                                       ('MediAid'),
+                                       ('HealthFirst'),
+                                       ('LifeLine'),
+                                       ('Wellbeing Ltd.'),
+                                       ('CureAll'),
+                                       ('Vitality Partners'),
+                                       ('HealthGuard');
 go
 insert into Vacations (VacationStart, VacationEnd, DoctorID) values
-('2023-06-01', '2023-06-15', 1),
-('2023-07-01', '2023-07-15', 2),
-('2023-08-01', '2023-08-15', 3),
-('2023-09-01', '2023-09-15', 4),
-('2023-10-01', '2023-10-15', 5),
-('2023-11-01', '2023-11-15', 6),
-('2023-12-01', '2023-12-15', 7),
-('2024-01-01', '2024-01-15', 8),
-('2024-02-01', '2024-02-15', 9),
-('2024-03-01', '2024-03-15', 10);
+                                                                 ('2023-06-01', '2023-06-15', 1),
+                                                                 ('2023-07-01', '2023-07-15', 2),
+                                                                 ('2023-08-01', '2023-08-15', 3),
+                                                                 ('2023-09-01', '2023-09-15', 4),
+                                                                 ('2023-10-01', '2023-10-15', 5),
+                                                                 ('2023-11-01', '2023-11-15', 6),
+                                                                 ('2023-12-01', '2023-12-15', 7),
+                                                                 ('2024-01-01', '2024-01-15', 8),
+                                                                 ('2024-02-01', '2024-02-15', 9),
+                                                                 ('2024-03-01', '2024-03-15', 10);
 go
 insert into Donations (DonationAmount, DonationDate, DepartmentID, SponsorID) values
-(10000, '2023-01-01', 1, 1),
-(15000, '2023-02-01', 2, 2),
-(20000, '2023-03-01', 3, 3),
-(25000, '2023-04-01', 4, 4),
-(30000, '2023-05-01', 5, 5),
-(35000, '2023-06-01', 6, 6),
-(40000, '2023-07-01', 7, 7),
-(45000, '2023-08-01', 8, 8),
-(50000, '2023-09-01', 9, 9),
-(55000, '2023-10-01', 10, 10);
+                                                                                  (10000, '2023-01-01', 1, 1),
+                                                                                  (15000, '2023-02-01', 2, 2),
+                                                                                  (20000, '2023-03-01', 3, 3),
+                                                                                  (25000, '2023-04-01', 4, 4),
+                                                                                  (30000, '2023-05-01', 5, 5),
+                                                                                  (35000, '2023-06-01', 6, 6),
+                                                                                  (40000, '2023-07-01', 7, 7),
+                                                                                  (45000, '2023-08-01', 8, 8),
+                                                                                  (50000, '2023-09-01', 9, 9),
+                                                                                  (55000, '2023-10-01', 10, 10);
 go
 insert into Wards (WardName, DepartmentID) values
-('Ward A', 1),
-('Ward B', 2),
-('Ward C', 3),
-('Ward D', 4),
-('Ward E', 5),
-('Ward F', 6),
-('Ward G', 7),
-('Ward H', 8),
-('Ward I', 9),
-('Ward J', 10);
+                                               ('Ward A', 1),
+                                               ('Ward B', 2),
+                                               ('Ward C', 3),
+                                               ('Ward D', 4),
+                                               ('Ward E', 5),
+                                               ('Ward F', 6),
+                                               ('Ward G', 7),
+                                               ('Ward H', 8),
+                                               ('Ward I', 9),
+                                               ('Ward J', 10);
 go
 
 select d.DoctorName, d.DoctorSurname, s.SpecializationName
@@ -178,3 +178,54 @@ from Departments d
          join Donations dn on d.DepartmentID = dn.DepartmentID
          join Sponsors s on dn.SponsorID = s.SponsorID
 where s.SponsorName = 'HealthCorp';
+
+select d.DepartmentName, s.SponsorName, dn.DonationAmount, dn.DonationDate
+from Donations dn
+         join Departments d on dn.DepartmentID = d.DepartmentID
+         join Sponsors s on dn.SponsorID = s.SponsorID
+where dn.DonationDate >= dateadd(month, -1, getdate());
+
+select d.DoctorSurname, d.DoctorName, w.WardName
+from Doctors d
+         join DoctorSpecializations ds on d.DoctorID = ds.DoctorID
+         join Specializations s on ds.SpecializationID = s.SpecializationID
+         join Wards w on s.SpecializationName = w.WardName
+where datepart(dw, getdate()) not in (1, 7);
+
+select w.WardName, d.DepartmentName
+from Wards w
+         join Departments d on w.DepartmentID = d.DepartmentID
+         join Doctors doc on w.WardName = doc.DoctorName
+where doc.DoctorName = 'Laura' and doc.DoctorSurname = 'Wilson';
+
+select d.DepartmentName, doc.DoctorName, doc.DoctorSurname
+from Departments d
+         join Donations dn on d.DepartmentID = dn.DepartmentID
+         join Doctors doc on dn.SponsorID = doc.DoctorID
+where dn.DonationAmount > 100000;
+
+select d.DepartmentName
+from Departments d
+         join Doctors doc on d.DepartmentID = doc.DoctorID
+where doc.DoctorPremium = 0;
+
+select s.SpecializationName
+from Specializations s
+         join DoctorSpecializations ds on s.SpecializationID = ds.SpecializationID
+         join Doctors doc on ds.DoctorID = doc.DoctorID
+where doc.DoctorSalary > 3;
+
+select d.DepartmentName, s.SpecializationName
+from Departments d
+         join Specializations s on d.DepartmentID = s.SpecializationID
+         join Vacations v on s.SpecializationID = v.DoctorID
+where v.VacationStart >= dateadd(month, -6, getdate());
+
+select d.DepartmentName, w.WardName
+from Departments d
+         join Wards w on d.DepartmentID = w.DepartmentID
+         join Specializations s on w.WardName = s.SpecializationName
+where s.SpecializationName like '%Infectious%';
+
+
+drop database HospitalDB;

@@ -84,16 +84,16 @@ create table GroupsStudents
 go
 
 insert into Curators (CuratorName, CuratorSurname) values
-('John', 'Doe'),
-('Jane', 'Smith'),
-('Alice', 'Johnson'),
-('Bob', 'Brown'),
-('Charlie', 'Davis'),
-('Diana', 'Wilson'),
-('Ethan', 'Garcia'),
-('Fiona', 'Martinez'),
-('George', 'Lopez'),
-('Hannah', 'Gonzalez');
+                                                       ('John', 'Doe'),
+                                                       ('Jane', 'Smith'),
+                                                       ('Alice', 'Johnson'),
+                                                       ('Bob', 'Brown'),
+                                                       ('Charlie', 'Davis'),
+                                                       ('Diana', 'Wilson'),
+                                                       ('Ethan', 'Garcia'),
+                                                       ('Fiona', 'Martinez'),
+                                                       ('George', 'Lopez'),
+                                                       ('Hannah', 'Gonzalez');
 insert into Students (StudentName, StudentRating, StudentSurname) values
                                                                       ('Michael', 4, 'Smith'),
                                                                       ('Sarah', 5, 'Johnson'),
@@ -210,35 +210,40 @@ from Departments
 group by DepartmentBuilding
 having sum(DepartmentFinancing) > 100000;
 
-
 select GroupName
 from Groups
 where GroupYear = 5 and DepartmentID = (select DepartmentID from Departments where DepartmentName = 'Department of Computer Science')
   and GroupID in (select GroupID from GroupsLectures where LectureID in (select LectureID from Lectures where LectureDate between '2023-10-01' and '2023-10-07'))
 
-
 select GroupName
 from Groups
-where GroupID in (select GroupID from GroupsStudents group by GroupID having avg(StudentRating) > (select avg(StudentRating) from Students where StudentID in (select StudentID from GroupsStudents where GroupID = (select GroupID from Groups where GroupName = 'CS107'))))
-
+where GroupID in (select GroupID from GroupsStudents where StudentID in (select StudentID from Students where StudentRating > (select avg(StudentRating) from Students where StudentID in (select StudentID from GroupsStudents where GroupID = (select GroupID from Groups where GroupName = 'CS103')))))
+  and GroupName != 'CS103';
 
 select TeacherSurname, TeacherName
 from Teachers
 where TeacherSalary > (select avg(TeacherSalary) from Teachers where TeacherISProfessor = 1);
 
-
 select GroupName
 from Groups
 where GroupID in (select GroupID from GroupsCurators group by GroupID having count(CuratorID) > 1);
 
-
 select GroupName
 from Groups
-where GroupID in (select GroupID from GroupsStudents group by GroupID having avg(StudentRating) < (select min(avg(StudentRating)) from GroupsStudents group by GroupID where GroupID in (select GroupID from Groups where GroupYear = 5)));
-
+where GroupID in (select GroupID from GroupsStudents where StudentID in (select StudentID from Students where StudentRating < (select min(StudentRating) from Students where StudentID in (select StudentID from GroupsStudents where GroupID in (select GroupID from Groups where GroupYear = 5)))));
 
 select FacultyName
 from Faculties
-where FacultyID in (select FacultyID from Departments group by FacultyID having sum(DepartmentFinancing) > (select sum(DepartmentFinancing) from Departments where FacultyID = (select FacultyID from Faculties where FacultyName = 'Faculty of Engineering')));
+where FacultyID in (select FacultyID from Departments group by FacultyID having sum(DepartmentFinancing) > (select sum(DepartmentFinancing) from Departments where FacultyID = (select FacultyID from Faculties where FacultyName = 'Faculty of Science')));
+
+select SubjectName
+from Subjects
+where SubjectID in (select SubjectID from Lectures group by SubjectID having count(LectureID) = (select min(LectureCount) from (select SubjectID, count(LectureID) as LectureCount from Lectures group by SubjectID) as SubQuery));
+
+select count(StudentID) as StudentCount, count(SubjectID) as SubjectCount
+from Students, Subjects
+where StudentID in (select StudentID from GroupsStudents where GroupID in (select GroupID from Groups where DepartmentID = (select DepartmentID from Departments where DepartmentName = 'Department of Computer Science')))
+  and SubjectID in (select SubjectID from Lectures where LectureID in (select LectureID from GroupsLectures where GroupID in (select GroupID from Groups where DepartmentID = (select DepartmentID from Departments where DepartmentName = 'Department of Computer Science'))));
+
 
 drop database AcademyDB;
